@@ -10,15 +10,10 @@ if(process.env.NODE_ENV === "test"){
 }
 
 const client = new Client({
-   connectionString: DB_URI
+   connectionString: DB_URI,
 });
 
-let db = new Client({
-  host : "/var/run/postgresql",
-  database : DB_URI
-})
+client.connect();
 
-db.connect();
-
-module.exports = db;
+module.exports = client;
 
